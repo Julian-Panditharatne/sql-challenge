@@ -12,7 +12,13 @@ SELECT first_name, last_name, hire_date
 		ORDER BY emp_no ASC;
 
 -- List the manager of each department along with their department number, department name, employee number, last name, and first name.
-
+SELECT dm.dept_no, d.dept_name, dm.emp_no, e.last_name, e.first_name
+	FROM dept_manager as dm
+	INNER JOIN departments as d ON
+	dm.dept_no = d.dept_no
+	INNER JOIN employees as e ON
+	dm.emp_no = e.emp_no
+	ORDER BY dm.dept_no ASC;
 
 -- List the department number for each employee along with that employee’s employee number, last name, first name, and department name.
 
